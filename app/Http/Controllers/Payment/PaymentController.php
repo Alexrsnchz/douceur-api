@@ -9,6 +9,10 @@ use Stripe\PaymentIntent;
 
 class PaymentController extends Controller
 {
+    /**
+     * Crea un intento de pago utilizando la clave
+     * secreta de la aplicación stripe.
+     */
     public function createPaymentIntent(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));

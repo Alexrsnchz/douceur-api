@@ -12,9 +12,9 @@ use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 class AuthController extends Controller
 {
     /**
-     * Creates a new user with the data received after validating it
-     * and returns a message with a status and the data created
-     * in JSON format.
+     * Crea un nuevo usuario con los datos recibidos después
+     * de validarlos y devuelve un mensaje con un estado y
+     * los datos creados en formato JSON.
      */
     public function register(RegisterUserRequest $request)
     {
@@ -35,9 +35,10 @@ class AuthController extends Controller
     }
 
     /**
-     * Logs in a user after validating the data received is correct
-     * and provides an access token for the user with a expiration
-     * date, a message and a status in JSON format.
+     * Inicia sesión con el usuario después de validar que las
+     * credenciales recibidas son correctas, y otorga un token
+     * para dicho usuario con un tiempo de expiración de 1h,
+     * un mensaje, y un estado en formato JSON.
      */
     public function login(LoginUserRequest $request)
     {
@@ -63,23 +64,9 @@ class AuthController extends Controller
     }
 
     /**
-     * Sends the authenticated user data with a message,
-     * and a status in JSON format.
-     */
-    public function profile()
-    {
-        $user = Auth::user();
-
-        return response() -> json([
-            'message' => 'Datos del perfil',
-            'status' => true,
-            'data' => $user
-        ]);
-    }
-
-    /**
-     * Logs out a user by rescinding it's access token and
-     * returns a message with a status in JSON format.
+     * Cierra la sesión del usuario invalidando el token
+     * de acceso y devuelve un mensaje con un estado
+     * en formato JSON.
      */
     public function logout()
     {

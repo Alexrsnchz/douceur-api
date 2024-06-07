@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
+    /**
+     * Envía un email al correo de la pastelería con los datos
+     * que el usuario ha introducido en el formulario de contacto
+     * después de validar los datos.
+     */
     public function send(Request $request)
     {
         $request -> validate([
