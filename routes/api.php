@@ -19,6 +19,7 @@ Route::group([
     'middleware' => ['auth:api']
 ], function() {
     Route::get('logout', [AuthController::class, 'logout']);
+    Route::post('create-payment-intent', [PaymentController::class, 'createPaymentIntent']);
 
     // Rutas API - Likes.
     Route::post('/products/{id}/like', [ProductController::class, 'like']);
